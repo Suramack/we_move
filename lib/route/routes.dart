@@ -5,7 +5,7 @@ import 'package:we_move/design_system/widget/brand_text.dart';
 import 'package:we_move/route/route_name.dart';
 import 'package:we_move/src/feature/intro/data/service/screen/intro_screen.dart';
 import 'package:we_move/src/feature/intro/data/service/screen/otp_screen.dart';
-import 'package:we_move/src/feature/intro/data/service/screen/phone_number_screen.dart';
+import 'package:we_move/src/feature/intro/data/service/screen/login_screen.dart';
 import 'package:we_move/src/feature/splash/splash_screen.dart';
 
 /// The route configuration.
@@ -24,9 +24,9 @@ final GoRouter routerConfig = GoRouter(
       },
     ),
     GoRoute(
-      path: RouteName.phoneNumber,
+      path: RouteName.login,
       builder: (BuildContext context, GoRouterState state) {
-        return const PhoneNumberScreen();
+        return const LoginScreen();
       },
     ),
     GoRoute(

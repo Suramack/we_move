@@ -1,8 +1,10 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:we_move/design_system/widget/brand_button.dart';
 import 'package:we_move/design_system/widget/brand_intro_base_layout.dart';
+import 'package:we_move/route/route_name.dart';
 import 'package:we_move/src/feature/intro/data/service/provider/intro_provider.dart';
 import 'package:we_move/src/feature/intro/data/service/widget/intro_thumbnail_widget.dart';
 import 'package:we_move/src/theme/colors.dart';
@@ -77,9 +79,11 @@ class _IntroScreenState extends ConsumerState<IntroScreen> {
                 child: BrandButton.primary(
                   title: provider.introButtonTitle,
                   onTap: () {
-                    var index = provider.nextOnTap();
-                    if(index<=2){
+                    if (provider.carouselCurrentIndex <= 2) {
                       carouselSliderController.nextPage();
+                    }
+                    if (provider.canNavigate) {
+                      context.push(RouteName.login);
                     }
                   },
                 ),

@@ -17,6 +17,9 @@ class IntroNotifierProvider extends StateNotifier<IntroState> {
   String get introButtonTitle =>
       state.carouselCurrentIndex == 2 ? Strings.getStarted : Strings.next;
 
+  bool get canNavigate =>
+      introButtonTitle == Strings.getStarted && nextOnTap() == 3;
+
   List<IntroThumbnailWidget> introThumbnailList = [
     IntroThumbnailWidget(
         image: Assets.travelingImage,
@@ -37,10 +40,12 @@ class IntroNotifierProvider extends StateNotifier<IntroState> {
 
   int nextOnTap() {
     int index = state.carouselCurrentIndex;
+    int count = index;
+    count += 1;
     if (index < 2) {
       index += 1;
       updateCarouselIndex(index);
     }
-    return state.carouselCurrentIndex;
+    return count;
   }
 }

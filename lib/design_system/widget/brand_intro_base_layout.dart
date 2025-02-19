@@ -4,14 +4,21 @@ import 'package:we_move/util/assets/assets.dart';
 
 class BrandIntroBaseLayout extends StatelessWidget {
   final Widget child;
+  final bool showBackButton;
+  final bool showSafeAreaTop;
+  final Function? onBackTap;
   const BrandIntroBaseLayout({
     super.key,
     required this.child,
+    this.showBackButton = false,
+    this.showSafeAreaTop = true,
+    this.onBackTap,
   });
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
+      top: showSafeAreaTop,
       child: Scaffold(
         body: SizedBox.expand(
           child: Stack(
@@ -44,6 +51,25 @@ class BrandIntroBaseLayout extends StatelessWidget {
                   ),
                 ),
               ),
+              if (showBackButton)
+                Positioned(
+                  top: 50,
+                  left: 20,
+                  child: InkWell(
+                    onTap: () {
+                      onBackTap?.call();
+                    },
+                    child: Container(
+                      width: 30,
+                      height: 30,
+                      decoration: BoxDecoration(
+                        color: AppColor.white,
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      child: Icon(Icons.arrow_back_ios_new_rounded),
+                    ),
+                  ),
+                ),
               Positioned(
                 top: MediaQuery.sizeOf(context).height * 0.25,
                 left: 0,
