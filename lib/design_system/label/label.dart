@@ -52,4 +52,12 @@ abstract class Strings {
   static const aVerificationCodeHas = 'A verification code has been sent to ';
 
   static const somethingWentWrong = 'Something Went Wrong';
+
+  static const pleaseEnterEmailOrPhone = 'Please enter Email Or Phone number';
+
+  static const notAValidEmailOrPhone = 'Not a valid Email or Phone number';
+
+  static const continueS = 'Continue';
+
+  static const search = 'Search';
 }

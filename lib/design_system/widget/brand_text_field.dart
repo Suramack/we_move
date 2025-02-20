@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:we_move/src/theme/colors.dart';
 
 import '../label/label.dart';
 
@@ -10,7 +11,8 @@ class BrandTextField extends StatelessWidget {
   final TextEditingController? controller;
   final List<TextInputFormatter> inputFormatters;
   final TextInputType? keyboardType;
-
+  final Function(String)? onChanged;
+  final bool filled;
   const BrandTextField({
     super.key,
     this.hintText,
@@ -19,6 +21,8 @@ class BrandTextField extends StatelessWidget {
     this.validator,
     this.controller,
     this.keyboardType,
+    this.onChanged,
+    this.filled = false,
     this.inputFormatters = const [],
   });
 
@@ -27,6 +31,20 @@ class BrandTextField extends StatelessWidget {
     return TextFormField(
       controller: controller,
       obscureText: obscureText,
+      inputFormatters: inputFormatters,
+      keyboardType: keyboardType,
+      decoration: InputDecoration(
+        filled: filled,
+        fillColor: Colors.white,
+        hintText: hintText,
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(15),
+          borderSide: BorderSide(
+            color: AppColor.greyE4,
+            width: 2,
+          ),
+        ),
+      ),
       validator: validator ??
           (value) {
             if (value == null || value.isEmpty) {
@@ -34,13 +52,9 @@ class BrandTextField extends StatelessWidget {
             }
             return null;
           },
-      inputFormatters: inputFormatters,
-      keyboardType: keyboardType,
-      decoration: InputDecoration(
-        filled: false,
-        fillColor: Colors.white,
-        hintText: hintText,
-      ),
+      onChanged: (value) {
+        onChanged?.call(value);
+      },
     );
   }
 }

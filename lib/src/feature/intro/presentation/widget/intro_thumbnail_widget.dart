@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:we_move/design_system/font/brand_font.dart';
 import 'package:we_move/design_system/font/brand_font_family.dart';
 import 'package:we_move/design_system/style/brand_space.dart';
 import 'package:we_move/design_system/style/text_style.dart';
 import 'package:we_move/design_system/widget/brand_sized_box.dart';
 import 'package:we_move/design_system/widget/brand_text.dart';
+import 'package:we_move/src/theme/colors.dart';
 
 class IntroThumbnailWidget extends StatelessWidget {
   final String image, title, subTite;
@@ -20,7 +22,7 @@ class IntroThumbnailWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Image.asset(
+        SvgPicture.asset(
           image,
         ),
         BrandVSpace(
@@ -41,6 +43,7 @@ class IntroThumbnailWidget extends StatelessWidget {
               fontSize: BrandFontSize.headline3,
               fontFamily: BrandFontFamily.openSans,
               fontWeight: FontWeight.w400,
+              color: AppColor.grey7D,
             ),
             textAlign: TextAlign.center,
           ),

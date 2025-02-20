@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:we_move/route/route_name.dart';
 import 'package:we_move/util/assets/assets.dart';
@@ -32,7 +33,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Image.asset(
+        child: SvgPicture.asset(
           Assets.logo,
         ),
       ),
