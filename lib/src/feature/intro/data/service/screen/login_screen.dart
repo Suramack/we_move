@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:we_move/design_system/font/brand_font.dart';
 import 'package:we_move/design_system/font/brand_font_family.dart';
@@ -52,7 +53,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                 BrandVSpace(
                   height: BrandSpace.gap20,
                 ),
-                Image.asset(
+                SvgPicture.asset(
                   Assets.logo,
                   height: 100,
                 ),

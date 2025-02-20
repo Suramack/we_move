@@ -96,7 +96,7 @@ class BrandIntroBaseLayout extends StatelessWidget {
                         ),
                         boxShadow: [
                           BoxShadow(
-                            color: AppColor.greyDC,
+                            color: AppColor.greyE4,
                             blurRadius: 3,
                             offset: Offset(4, 4),
                             spreadRadius: 0,

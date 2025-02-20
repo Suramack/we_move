@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:we_move/design_system/label/label.dart';
 import 'package:we_move/design_system/style/brand_space.dart';
 import 'package:we_move/design_system/widget/brand_sized_box.dart';
@@ -48,7 +49,7 @@ class BaseLayout extends StatelessWidget {
                 top: 0,
                 child: Opacity(
                   opacity: 0.2,
-                  child: Image.asset(
+                  child: SvgPicture.asset(
                     Assets.bgOutlineImage,
                     fit: BoxFit.cover,
                   ),
