@@ -12,6 +12,7 @@ class BrandTextField extends StatelessWidget {
   final List<TextInputFormatter> inputFormatters;
   final TextInputType? keyboardType;
   final Function(String)? onChanged;
+  final bool filled;
   const BrandTextField({
     super.key,
     this.hintText,
@@ -21,6 +22,7 @@ class BrandTextField extends StatelessWidget {
     this.controller,
     this.keyboardType,
     this.onChanged,
+    this.filled = false,
     this.inputFormatters = const [],
   });
 
@@ -32,7 +34,7 @@ class BrandTextField extends StatelessWidget {
       inputFormatters: inputFormatters,
       keyboardType: keyboardType,
       decoration: InputDecoration(
-        filled: false,
+        filled: filled,
         fillColor: Colors.white,
         hintText: hintText,
         border: OutlineInputBorder(

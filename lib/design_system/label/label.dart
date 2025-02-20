@@ -57,5 +57,7 @@ abstract class Strings {
 
   static const notAValidEmailOrPhone = 'Not a valid Email or Phone number';
 
-  static const continueS='Continue';
+  static const continueS = 'Continue';
+
+  static const search = 'Search';
 }
