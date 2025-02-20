@@ -1,101 +1,108 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:we_move/design_system/font/brand_font.dart';
+import 'package:we_move/design_system/font/brand_font_family.dart';
+import 'package:we_move/design_system/label/label.dart';
 import 'package:we_move/design_system/style/brand_space.dart';
-import 'package:we_move/design_system/widget/base_layout.dart';
+import 'package:we_move/design_system/style/text_style.dart';
+import 'package:we_move/design_system/widget/brand_intro_base_layout.dart';
 import 'package:we_move/design_system/widget/brand_sized_box.dart';
 import 'package:we_move/design_system/widget/brand_text.dart';
+import 'package:we_move/route/route_name.dart';
+import 'package:we_move/src/feature/intro/data/service/provider/login_provider.dart';
+import 'package:we_move/src/feature/intro/data/service/widget/slider_button.dart';
 import 'package:we_move/src/theme/colors.dart';
-import 'package:we_move/util/extentions/extensions.dart';
 
 class OtpScreen extends ConsumerStatefulWidget {
   const OtpScreen({super.key});
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() => _OtpScreenState();
+  ConsumerState<OtpScreen> createState() => _OtpScreenState();
 }
 
 class _OtpScreenState extends ConsumerState<OtpScreen> {
-  @override
-  void initState() {
-    super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) {});
-  }
+  late LoginNotifierProvider provider;
+
+  GlobalKey<FormState> formKey = GlobalKey();
+
+  TextEditingController otpController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    return BaseLayout(
+    ref.watch(loginProvider);
+    provider = ref.read(loginProvider.notifier);
+    return BrandIntroBaseLayout(
+      showBackButton: true,
+      showSafeAreaTop: false,
+      childTopPosition: MediaQuery.sizeOf(context).height * 0.15,
+      onBackTap: () {
+        context.pop();
+      },
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: BrandSpace.gap20),
+        padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const BrandVSpace(
-              height: 100,
+            BrandVSpace(
+              height: BrandSpace.gap20,
             ),
-            const Icon(
-              Icons.quiz_sharp,
-              size: 55,
-              color: AppColor.secondary,
-            ),
-            const BrandVSpace(
-              height: 20,
-            ),
-            const BrandText.secondary(
-              data: 'Strings.otpverification',
-              textStyle: TextStyle(
-                fontSize: BrandFontSize.headline1,
-                color: AppColor.black,
-                fontWeight: FontWeight.bold,
+            BrandText(
+              data: Strings.otpVerification,
+              textStyle: BrandTextStyle(
+                fontSize: BrandFontSize.size24,
+                fontWeight: FontWeight.w600,
               ),
             ),
-            const BrandVSpace(
-              height: 10,
+            BrandVSpace(
+              height: BrandSpace.gap20,
             ),
-            BrandText.grey(
-              data: '} ${'-...'}',
-              textStyle: const TextStyle(
-                fontSize: BrandFontSize.body,
-                color: AppColor.grey166,
+            BrandText.secondary(
+              data: Strings.aVerificationCodeHas + provider.phoneEmail,
+              textAlign: TextAlign.center,
+              textStyle: BrandTextStyle(
+                fontSize: BrandFontSize.headline3,
+                fontFamily: BrandFontFamily.openSans,
+                fontWeight: FontWeight.w400,
+                color: AppColor.grey7D,
               ),
             ),
-            const BrandVSpace(
-              height: 20,
+            BrandVSpace(
+              height: BrandSpace.gap40,
             ),
             OtpTextField(
               numberOfFields: 4,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               borderRadius: BorderRadius.circular(12),
-              fieldWidth: 40,
-              fieldHeight: 40,
+              fieldWidth: 68,
+              fieldHeight: 65,
               cursorColor: AppColor.transparent,
               focusedBorderColor: AppColor.primary,
               borderColor: AppColor.primary,
               showFieldAsBox: true,
-              onCodeChanged: (String code) {},
+              onCodeChanged: (String code) {
+                provider.updateOtpString(null);
+              },
+              autoFocus: true,
               onSubmit: (value) {
-                if (value.length == 4) {
-                  // regProvider.varifyOtp(context: context, otp: value);
-                }
+                provider.updateOtpString(value);
               },
             ),
-            const BrandVSpace(
-              height: 20,
+            BrandVSpace(
+              height: BrandSpace.gap20,
             ),
-            Center(
-              child: SizedBox(
-                width: context.deviceSize.width * 0.6,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    // if (regProvider.timer != 0)
-                  ],
-                ),
+            Align(
+              alignment: Alignment.centerRight,
+              child: SliderButton(
+                disabled: !provider.enableVerifyOtpButton,
+                onSubmit: provider.enableVerifyOtpButton
+                    ? () {
+                        context.go(RouteName.selfi);
+
+                        return;
+                      }
+                    : null,
               ),
-            ),
-            const BrandVSpace(
-              height: 100,
             ),
           ],
         ),

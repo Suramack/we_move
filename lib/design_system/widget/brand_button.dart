@@ -13,6 +13,7 @@ class BrandButton extends StatelessWidget {
   final double borderRadius;
   final double? fontSize;
   final FontWeight? fontWeight;
+  final bool isDiable;
   const BrandButton.primary({
     super.key,
     required this.onTap,
@@ -22,6 +23,7 @@ class BrandButton extends StatelessWidget {
     this.borderRadius = 12,
     this.fontSize = BrandFontSize.headline3,
     this.fontWeight = FontWeight.w400,
+    this.isDiable = false,
   });
   const BrandButton({
     super.key,
@@ -31,6 +33,7 @@ class BrandButton extends StatelessWidget {
     this.fontColor,
     this.borderRadius = 12,
     this.fontSize,
+    this.isDiable = false,
     this.fontWeight,
   });
 
@@ -40,12 +43,12 @@ class BrandButton extends StatelessWidget {
       constraints: const BoxConstraints(minHeight: 20, minWidth: 40),
       child: Container(
         decoration: BoxDecoration(
-          color: bgColor ?? AppColor.primary,
+          color: isDiable ? AppColor.grey7D : bgColor ?? AppColor.primary,
           borderRadius: BorderRadius.circular(borderRadius),
         ),
         child: InkWell(
           onTap: () {
-            onTap();
+            if (!isDiable) onTap();
           },
           child: Center(
             child: Padding(

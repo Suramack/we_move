@@ -48,6 +48,10 @@ dependencies:
   network_info_plus: ^6.0.1
   flutter_otp_text_field: ^1.2.0
   carousel_slider: ^5.0.0
+  slide_to_act: ^2.0.2
+  flutter_svg: ^2.0.17
+  shimmer: ^3.0.0
+  image_picker: ^1.1.2
 
 dev_dependencies:
   flutter_test:
@@ -74,7 +78,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/image/
-  #   - images/a_dot_ham.jpeg
+    - assets/icon/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
