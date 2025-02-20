@@ -5,8 +5,8 @@ import 'package:go_router/go_router.dart';
 import 'package:we_move/design_system/widget/brand_button.dart';
 import 'package:we_move/design_system/widget/brand_intro_base_layout.dart';
 import 'package:we_move/route/route_name.dart';
-import 'package:we_move/src/feature/intro/data/service/provider/intro_provider.dart';
-import 'package:we_move/src/feature/intro/data/service/widget/intro_thumbnail_widget.dart';
+import 'package:we_move/src/feature/intro/presentation/provider/intro_provider.dart';
+import 'package:we_move/src/feature/intro/presentation/widget/intro_thumbnail_widget.dart';
 import 'package:we_move/src/theme/colors.dart';
 
 class IntroScreen extends ConsumerStatefulWidget {

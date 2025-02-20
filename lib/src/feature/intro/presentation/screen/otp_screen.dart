@@ -11,8 +11,8 @@ import 'package:we_move/design_system/widget/brand_intro_base_layout.dart';
 import 'package:we_move/design_system/widget/brand_sized_box.dart';
 import 'package:we_move/design_system/widget/brand_text.dart';
 import 'package:we_move/route/route_name.dart';
-import 'package:we_move/src/feature/intro/data/service/provider/login_provider.dart';
-import 'package:we_move/src/feature/intro/data/service/widget/slider_button.dart';
+import 'package:we_move/src/feature/intro/presentation/provider/login_provider.dart';
+import 'package:we_move/src/feature/intro/presentation/widget/slider_button.dart';
 import 'package:we_move/src/theme/colors.dart';
 
 class OtpScreen extends ConsumerStatefulWidget {

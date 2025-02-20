@@ -13,7 +13,7 @@ import 'package:we_move/design_system/widget/brand_sized_box.dart';
 import 'package:we_move/design_system/widget/brand_text.dart';
 import 'package:we_move/design_system/widget/brand_text_field.dart';
 import 'package:we_move/route/route_name.dart';
-import 'package:we_move/src/feature/intro/data/service/provider/login_provider.dart';
+import 'package:we_move/src/feature/intro/presentation/provider/login_provider.dart';
 import 'package:we_move/src/theme/colors.dart';
 import 'package:we_move/util/assets/assets.dart';
 import 'package:we_move/util/regular_expression/regular_expression.dart';

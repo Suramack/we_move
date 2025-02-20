@@ -11,8 +11,8 @@ import 'package:we_move/design_system/widget/brand_intro_base_layout.dart';
 import 'package:we_move/design_system/widget/brand_sized_box.dart';
 import 'package:we_move/design_system/widget/brand_text.dart';
 import 'package:we_move/route/route_name.dart';
-import 'package:we_move/src/feature/intro/data/service/provider/login_provider.dart';
-import 'package:we_move/src/feature/intro/data/service/widget/selfi_upload_widget.dart';
+import 'package:we_move/src/feature/intro/presentation/provider/login_provider.dart';
+import 'package:we_move/src/feature/intro/presentation/widget/selfi_upload_widget.dart';
 
 class SelfiScreen extends ConsumerStatefulWidget {
   const SelfiScreen({super.key});

@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:we_move/core/model/intro/state_model/intro_state_model.dart';
 import 'package:we_move/design_system/label/label.dart';
-import 'package:we_move/src/feature/intro/data/service/widget/intro_thumbnail_widget.dart';
+import 'package:we_move/src/feature/intro/presentation/widget/intro_thumbnail_widget.dart';
 import 'package:we_move/util/assets/assets.dart';
 
 final introProvider = StateNotifierProvider<IntroNotifierProvider, IntroState>(
